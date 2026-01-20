@@ -116,6 +116,10 @@ class PluginService:
         """
         Check the plugin installation scope
         """
+
+        if not dify_config.MARKETPLACE_ENABLED:
+            return
+
         features = FeatureService.get_system_features()
 
         match features.plugin_installation_permission.plugin_installation_scope:
